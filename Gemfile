@@ -82,32 +82,32 @@ else
   warn("Please configure your config/database.yml first")
 end
 
-group :development do
-  gem "rdoc", ">= 2.4.2"
-  gem "yard"
-end
-
-group :test do
-  gem "minitest"
-  gem "test-unit", "~> 3.0"
-  gem "shoulda", "~> 3.3.2"
-  gem "shoulda-matchers", "1.4.1"
-  gem "mocha", "~> 1.0.0", :require => 'mocha/api'
-  if RUBY_VERSION >= '1.9.3'
-    gem "capybara"
-    gem "selenium-webdriver"
-  end
-end
-
-local_gemfile = File.join(File.dirname(__FILE__), "Gemfile.local")
-if File.exists?(local_gemfile)
-  puts "Loading Gemfile.local ..." if $DEBUG # `ruby -d` or `bundle -v`
-  instance_eval File.read(local_gemfile)
-end
-
-# Load plugins' Gemfiles
-Dir.glob File.expand_path("../plugins/*/{Gemfile,PluginGemfile}", __FILE__) do |file|
-  puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
-  #TODO: switch to "eval_gemfile file" when bundler >= 1.2.0 will be required (rails 4)
-  instance_eval File.read(file), file
-end
+# group :development do
+#   gem "rdoc", ">= 2.4.2"
+#   gem "yard"
+# end
+# 
+# group :test do
+#   gem "minitest"
+#   gem "test-unit", "~> 3.0"
+#   gem "shoulda", "~> 3.3.2"
+#   gem "shoulda-matchers", "1.4.1"
+#   gem "mocha", "~> 1.0.0", :require => 'mocha/api'
+#   if RUBY_VERSION >= '1.9.3'
+#     gem "capybara"
+#     gem "selenium-webdriver"
+#   end
+# end
+# 
+# local_gemfile = File.join(File.dirname(__FILE__), "Gemfile.local")
+# if File.exists?(local_gemfile)
+#   puts "Loading Gemfile.local ..." if $DEBUG # `ruby -d` or `bundle -v`
+#   instance_eval File.read(local_gemfile)
+# end
+# 
+# # Load plugins' Gemfiles
+# Dir.glob File.expand_path("../plugins/*/{Gemfile,PluginGemfile}", __FILE__) do |file|
+#   puts "Loading #{file} ..." if $DEBUG # `ruby -d` or `bundle -v`
+#   #TODO: switch to "eval_gemfile file" when bundler >= 1.2.0 will be required (rails 4)
+#   instance_eval File.read(file), file
+# end
